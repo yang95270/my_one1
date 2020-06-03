@@ -223,20 +223,31 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node show-fences-line-number'><h2><a name='header-n0' class='md-header-anchor '></a>get post区别</h2><blockquote><p>1.get不安全（数据存储在地址栏）
+    <br/><br/><br/><br/>
+    <li><a>目录</a></li>
+    <li><a href="#top">顶部</a></li>
+    <li><a href="#get">get post区别</a></li>
+    <li><a href="#服务器状态码">服务器状态码</a></li>
+    <li><a href="#request">request（请求）forward---请求转发</a></li>
+    <li><a href="#response(响应)">response(响应)</a></li>
+    <li><a href="#四大作用域">四大作用域</a></li>    
+    <li><a href="#bottom">底部</a></li><br/>
+<div  id='write'  class = 'is-node show-fences-line-number'>
+  <li><a id = "top"></a></li>
+  <h2><a id = "get" name='header-n0' class='md-header-anchor '></a>get post区别</h2><blockquote><p>1.get不安全（数据存储在地址栏）
       post安全（在请求文本中）</p><p>2.get可携带数据小
       post大</p><p>3.get的效率比post高（数据库传输问题，     get不需要往数据库传输）</p></blockquote><blockquote><p><strong>get</strong>:向指定的资源发出“显示”请求。使用GET方法应该只用在读取数据，而不应当被用于产生副作用”的操作中，例如在Web Application中。
-其中一个原因是GET可能会被网络蜘蛛等随意访问.<strong></strong></p><p><strong>post:</strong>向指定资源提交数据，请求服务器进行处理(例如提交表单或者上传文件) .数据被包含在请求本文中。这个请求可能会创建新的资源或修改现有资源，或二者皆有。</p></blockquote><h2><a name='header-n17' class='md-header-anchor '></a>服务器状态码</h2><blockquote><p>100正在处理
+其中一个原因是GET可能会被网络蜘蛛等随意访问.<strong></strong></p><p><strong>post:</strong>向指定资源提交数据，请求服务器进行处理(例如提交表单或者上传文件) .数据被包含在请求本文中。这个请求可能会创建新的资源或修改现有资源，或二者皆有。</p></blockquote><h2><a id ="服务器状态码" name='header-n17' class='md-header-anchor '></a>服务器状态码</h2><blockquote><p>100正在处理
 200响应成功
 303重定向状态码，需进行附加操作
 404服务器资源找不到，通常是路径错误
 405禁用请求中指定的方法
 500内部错误，通常是Java代码错误
-空白（连接失败）服务器没启动</p></blockquote><h2><a name='header-n27' class='md-header-anchor '></a>request（请求）forward---请求转发</h2><blockquote><p>1、地址栏不变
+空白（连接失败）服务器没启动</p></blockquote><h2><a id = "request" name='header-n27' class='md-header-anchor '></a>request（请求）forward---请求转发</h2><blockquote><p>1、地址栏不变
 2、可以携带参数
 3、一次请求
 Request 对象用于接收客户端浏览器提交的数据
-request.getParamter()和request.getAttribute()的使用区别:	</p><p>​	getAttribute()只能获取通过setAttribute()方法设置的值	</p><p>​	getParamter()获取表单中的值或者请求地址栏中的值</p></blockquote><h2><a name='header-n39' class='md-header-anchor '></a>response(响应)</h2><blockquote><p>1、地址栏的地址会发生改变</p><p>2、不能携带参数</p><p>3、请求至少有两次
+request.getParamter()和request.getAttribute()的使用区别:	</p><p>​	getAttribute()只能获取通过setAttribute()方法设置的值	</p><p>​	getParamter()获取表单中的值或者请求地址栏中的值</p></blockquote><h2><a id = "response(响应)"name='header-n39' class='md-header-anchor '></a>response(响应)</h2><blockquote><p>1、地址栏的地址会发生改变</p><p>2、不能携带参数</p><p>3、请求至少有两次
  Response 对象是将服务器端的数据发送到客户端浏览器。</p></blockquote><h3><a name='header-n48' class='md-header-anchor '></a>请求转发与重定向的区别/forward和sendRedirect的区别</h3><blockquote><p>1.sendRedrect()重定向：不仅可以重定向到同一web应用中的组件，可以重定向到其他站点资源，重定向后浏览器的URL会发生变化，因为重定向的实质 是 server端发送一个消息给浏览器端，使重新浏览新的URL
 2.forward() 请求转发：forward只能请求转发给同一web应用中的组件,转发后浏览器的url不会发生改变，forward实质是 站内转发，获取其他server资源，不会给浏览器端发送消息</p></blockquote><p>session是将数据存储在了服务端，数据是安全的，但是将密码用session存会在其生命周期结束时消失，不太妥当</p><h2><a name='header-n55' class='md-header-anchor '></a>cookie和session的区别</h2><blockquote><p>session是将数据存储在了服务端，数据是安全的，但是将密码用session存会在其生命周期结束时消失，不太妥当</p><p>cookie是存储在本地的，session是存储在服务端
 cookie是不安全的，session是安全
@@ -244,7 +255,7 @@ cookie效率相对较高，session相对较低</p></blockquote><h2><a name='head
 值大于0，cookie会存储于本地磁盘，过期后自动删除
 值小于0，cookie不会存储在本地磁盘，当浏览器关闭时，cookie就自动删除
 值等于0，cookie自己失效</p></blockquote><h2><a name='header-n70' class='md-header-anchor '></a>jsp设置编码格式有两种</h2><blockquote><p>1，在tomcat里配置
-2，get和post请求方式</p></blockquote><h2><a name='header-n75' class='md-header-anchor '></a>四大作用域：</h2><blockquote><p>变量名			作用域范围
+2，get和post请求方式</p></blockquote><h2><a id ="四大作用域" name='header-n75' class='md-header-anchor '></a>四大作用域：</h2><blockquote><p>变量名			作用域范围
 pageContext		当前页生效
 request			在一次请求中生效
 session			在一次会话中生效
@@ -260,5 +271,6 @@ oracle比mysql的功能更强大，更多
 2.范围型的查找使用between and  不用in
 3.在数据库中尽量不i要使用函数
 4.使用索引处理</p></blockquote></div>
+<li><a id = "bottom"></a></li>
 </body>
 </html>
